@@ -79,4 +79,8 @@ public class CrimeFragment extends Fragment {
         });
         return v;
     }
+
+    public void returnResult() {
+        getActivity().setResult(Activity.RESULT_OK);
+    }
 }
