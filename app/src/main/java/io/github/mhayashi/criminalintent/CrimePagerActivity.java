@@ -45,7 +45,7 @@ public class CrimePagerActivity extends FragmentActivity {
 
             @Override
             public void onPageSelected(int i) {
-                Crime crime = mCrimes.get(pos);
+                Crime crime = mCrimes.get(i);
                 if (crime.getTitle() != null) {
                     setTitle(crime.getTitle());
                 }
