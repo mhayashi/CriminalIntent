@@ -2,11 +2,15 @@ package io.github.mhayashi.criminalintent;
 
 import android.support.v4.app.Fragment;
 
+import java.util.UUID;
+
 public class CrimeActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment createFragment() {
-        return new CrimeFragment();
+        UUID crimeID = (UUID)getIntent().getSerializableExtra(CrimeFragment.EXTRA_CRIME_ID);
+
+        return CrimeFragment.newInstance(crimeID);
     }
 
 }
