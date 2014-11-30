@@ -1,7 +1,9 @@
 package io.github.mhayashi.criminalintent;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Camera;
 import android.os.Build;
 import android.os.Bundle;
@@ -61,7 +63,11 @@ public class CrimeCameraFragment extends Fragment {
             }
 
             if (success) {
-                Log.i(TAG, "JPEG saved at " + filename);
+                Intent i = new Intent();
+                i.putExtra(EXTRA_PHOTO_FILENAME, filename);
+                getActivity().setResult(Activity.RESULT_OK, i);
+            } else {
+                getActivity().setResult(Activity.RESULT_CANCELED);
             }
             getActivity().finish();
         }

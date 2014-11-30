@@ -165,8 +165,8 @@ public class CrimeFragment extends Fragment {
             Date date = (Date)data.getSerializableExtra(DatePickerFragment.EXTRA_DATE);
             mCrime.setDate(date);
             updateDate();
-        }
-        if (requestCode == REQUEST_PHOTO) {
+        } else if (requestCode == REQUEST_PHOTO) {
+            // Create a new Photo object and attach it to the crime
             String filename = data.getStringExtra(CrimeCameraFragment.EXTRA_PHOTO_FILENAME);
             if (filename != null) {
                 Photo p = new Photo(filename);
